@@ -1,37 +1,44 @@
 {
-  "uuid": "ed70b15c-3c48-4828-8e8c-e39a28efb38d",
-  "shortName": "Tutorial-3-3",
-  "longName": "Tutorial-3-3",
-  "companyName": "Pebble",
-  "versionCode": 1,
-  "versionLabel": "1.0",
-  "watchapp": {
-    "watchface": true
-  },
-  "appKeys": {
-    "KEY_TEMPERATURE": 0,
-    "KEY_CONDITIONS": 1
-  },
-  "capabilities": [
-    "location"
-  ],
-  "resources": {
-    "media": [
-      {
-        "type":"font",
-        "name":"FONT_PERFECT_DOS_48",
-        "file":"perfect-dos-vga.ttf"
-      },
-      {
-        "type":"font",
-        "name":"FONT_PERFECT_DOS_20",
-        "file":"perfect-dos-vga.ttf"
-      },
-      {
-        "type":"png",
-        "name":"IMAGE_BACKGROUND",
-        "file":"background.png"
-      }
-    ]
-  }
+    "appKeys": {
+        "KEY_CONDITIONS": 1,
+        "KEY_MSG1": 2,
+        "KEY_MSG2": 3,
+        "KEY_MSG3": 4,
+        "KEY_TEMPERATURE": 0
+    },
+    "capabilities": [
+        "location"
+    ],
+    "companyName": "Liznal",
+    "longName": "Checlock",
+    "projectType": "native",
+    "resources": {
+        "media": [
+            {
+                "file": "images/background.png",
+                "name": "IMAGE_BACKGROUND",
+                "type": "png"
+            },
+            {
+                "compatibility": "2.7",
+                "file": "fonts/perfect-dos-vga.ttf",
+                "name": "FONT_PERFECT_DOS_20",
+                "type": "font"
+            },
+            {
+                "compatibility": "2.7",
+                "file": "fonts/perfect-dos-vga.ttf",
+                "name": "FONT_PERFECT_DOS_48",
+                "type": "font"
+            }
+        ]
+    },
+    "sdkVersion": "2",
+    "shortName": "Checlock",
+    "uuid": "ed70b15c-3c48-4828-8e8c-e39a28efb38d",
+    "versionCode": 1,
+    "versionLabel": "1.0",
+    "watchapp": {
+        "watchface": true
+    }
 }

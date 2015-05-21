@@ -44,6 +44,39 @@ function locationSuccess(pos) {
     }      
   );
 }
+
+function getmine() {
+  // Construct URL
+  var url = "http://migueldlarosa.com/webservice.php";
+
+  xhrRequest(url, 'GET', 
+    function(responseText) {
+      // responseText contains a JSON object with weather info
+      var json = JSON.parse(responseText);
+     
+      var message = json.message;
+      var message2 = json.message2;
+      var message3 = json.message3;
+      
+      // Assemble dictionary using our keys
+      var dictionary = {
+        "KEY_MSG1": message,
+        "KEY_MSG2": message2,
+        "KEY_MSG3": message3
+      };
+ 
+      // Send to Pebble
+      Pebble.sendAppMessage(dictionary,
+        function(e) {
+          console.log("Mine info sended correctly");
+        },
+        function(e) {
+          console.log("Error sending mine info");
+        }
+      );
+    }      
+  );
+}
  
 function locationError(err) {
   console.log("Error requesting location!");
@@ -55,6 +88,7 @@ function getWeather() {
     locationError,
     {timeout: 15000, maximumAge: 60000}
   );
+  getmine();
 }
  
 // Listen for when the watchface is opened
@@ -70,7 +104,7 @@ Pebble.addEventListener('ready',
 // Listen for when an AppMessage is received
 Pebble.addEventListener('appmessage',
   function(e) {
-    console.log("AppMessage received!");
+    console.log('Received message: ' + JSON.stringify(e.payload));
     getWeather();
   }                     
 );
